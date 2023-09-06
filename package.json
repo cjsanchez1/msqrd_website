@@ -15,9 +15,13 @@
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8",
     "@mui/styled-engine-sc": "^5.14.8",
+    "@react-three/drei": "^9.82.0",
+    "@react-three/fiber": "^8.14.1",
+    "@types/three": "^0.155.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "three": "^0.156.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
