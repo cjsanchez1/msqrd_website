@@ -8,12 +8,14 @@ import {
   Drawer,
   List,
   ListItemButton,
+  ListItemText,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 import logoPng from "./imgs/Magnitude_Squared_Transparent_256x256.png"
+import MsqrdColors from './MSqrdColors';
 
 const appName = "M^2"
 const navBarHeight = 60
@@ -56,11 +58,18 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
   ];
 
   const drawer = (
-    <Drawer open={drawerOpen} onClose={handleDrawerToggle}>
+    <Drawer 
+      open={drawerOpen} 
+      onClose={handleDrawerToggle} 
+      PaperProps={ { style:{ backgroundColor:MsqrdColors.darkBlue, width:"30%" } } }
+      anchor="right"
+      >
       <List>
         {menuItems.map((menuItem) => (
           <ListItemButton key={menuItem.text} onClick={() => scrollToRef(menuItem.ref)}>
-            {menuItem.text}
+            <ListItemText style={ { color:MsqrdColors.white, textAlign:"center", textTransform:"uppercase" } }>
+              {menuItem.text}
+            </ListItemText>
           </ListItemButton>
         ))}
       </List>
