@@ -13,13 +13,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-const appName = "My App"
-const navBarHeight = 50
+import logoPng from "./imgs/Magnitude_Squared_Transparent_256x256.png"
+
+const appName = "M^2"
+const navBarHeight = 60
 
 const navBarStyle = {
-    customizeToolbar: {
+    toolbar: {
         minHeight: navBarHeight,
-    }
+        maxHeight: navBarHeight,
+    },
 }
 
 interface NavBarProps {
@@ -39,7 +42,7 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
   const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       window.scrollTo({
-        top: ref.current.offsetTop - (navBarStyle.customizeToolbar.minHeight * 1.2),
+        top: ref.current.offsetTop - (navBarStyle.toolbar.minHeight * 1.2),
         behavior: 'smooth',
       });
     }
@@ -66,10 +69,15 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
 
   return (
     <>
-      <AppBar position="fixed">
-        <Toolbar style={navBarStyle.customizeToolbar}>
+      {/* <AppBar position="fixed" style={{ background:"transparent", }}> */}
+      <AppBar position="fixed" style={{ background:"#000033", }}>
+        <Toolbar style={navBarStyle.toolbar}>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
-                {appName}
+                <img src={logoPng} 
+                  alt={appName} 
+                  style={{ maxHeight: `${navBarHeight}px`, padding:'0.5rem', flex:0 }} 
+                  onClick={() => scrollToRef(menuItems[0].ref)}
+                />
             </Typography>
           {isMobile ? (
             <>
@@ -95,7 +103,7 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
       </AppBar>
       {drawer}
       {/*div to not overlap with first section*/}
-      <div style={{ height: navBarStyle.customizeToolbar.minHeight * 0.55 }}></div> 
+      <div style={{ height: navBarStyle.toolbar.minHeight * 0.55 }}></div> 
     </>
   );
 };
