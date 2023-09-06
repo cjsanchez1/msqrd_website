@@ -44,7 +44,7 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
   const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       window.scrollTo({
-        top: ref.current.offsetTop - (navBarStyle.toolbar.minHeight * 1.2),
+        top: ref.current.offsetTop - (navBarStyle.toolbar.minHeight),
         behavior: 'smooth',
       });
     }
