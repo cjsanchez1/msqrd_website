@@ -1,9 +1,9 @@
-import { About } from "./About";
 import NavBar from "./NavBar";
-import React, { useRef } from "react";
+import React from "react";
+import MsqrdColors from "./MSqrdColors";
+import { About } from "./About";
 import { Services } from "./Services";
 import { Contact } from "./Contact";
-import MsqrdColors from "./MSqrdColors";
 
 export default function App() {
   const aboutRef    = React.useRef<HTMLDivElement>(null);
@@ -18,7 +18,6 @@ export default function App() {
       <About ref={aboutRef} />
       <Services ref={servicesRef} />
       <Contact ref={contactRef} />
-      <div>Testv Div</div>
     </>
   )
 }
