@@ -6,7 +6,7 @@ import Loader from './Loader';
 import MsqrdColors from './MSqrdColors';
 import { DirectionalLight, Vector3, DirectionalLightHelper, CameraHelper } from 'three';
 
-const orthoCamStartPos = new Vector3(0, 1, 0)
+const orthoCamStartPos = new Vector3(0, 10, 0)
 
 export const About = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
