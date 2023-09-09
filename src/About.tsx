@@ -6,6 +6,7 @@ import Loader from './Loader';
 import * as MSqrdColors from "./MSqrdColors"
 import * as THREE from "three"
 import { DirectionalLight, Vector3, DirectionalLightHelper, CameraHelper } from 'three';
+import * as OrthoCamUtils from './OrthoCamUtils';
 
 const orthoCamStartPos = new Vector3(0, 10, 0)
 
@@ -14,31 +15,24 @@ export const About = React.forwardRef<HTMLDivElement>((props, ref) => {
     <>
       <div ref={ref} style={{ height: '70vh', backgroundColor: 'lightgray', padding:0 }}>
         <Canvas shadows="soft" style={ { backgroundColor:MSqrdColors.darkBlue } }> 
+            {/* <OrbitControls /> */}
             <CustomOrthoCamera />
             <Suspense fallback={<Loader />}>
-              <HeroScene />
+              <LogoScene />
             </Suspense>
         </Canvas>
       </div>
       <div style={ { display:"flex", height:'30vh', justifyContent:"center", alignItems:"center" } }>
-        <h2 style={ { textAlign:"center", color:MSqrdColors.yellow, } }>Magnitude Squared was born out of a passion for high performance code.</h2>
+        <h2 style={ { textAlign:"center", color:MSqrdColors.yellow, } }>
+          Magnitude Squared was born out of a passion for high performance code.
+        </h2>
       </div>
     </>
   );
 });
 
-const calcOrthoCamZoom = () => 
-{ 
-  const orthoCamInitZoom = 100
-  const orthoCamGoodWidthAspect = 0.65
-  const orthoCamGoodHeightAspect = 0.2
-
-  const windowWidth  = window.innerWidth
-  const windowHeight = window.innerHeight
-  const widthAspect  = windowWidth / windowHeight;
-  const heightAspect = windowHeight / windowWidth;
-  const finalMult = widthAspect < 1.6 ? (widthAspect / orthoCamGoodWidthAspect) : (heightAspect / orthoCamGoodHeightAspect);
-  return orthoCamInitZoom * finalMult;
+function calcOrthoCamZoom() : number {
+  return OrthoCamUtils.calcOrthoCamZoom(OrthoCamUtils.calcOrthoCamZoomDefaultSettings);
 }
 
 function CustomOrthoCamera(){
@@ -80,23 +74,22 @@ function Floor(){
               roughness={1}
               envMapIntensity={1}
             />
-            {/* <shadowMaterial color={MsqrdColors.yellow}/> */}
         </mesh>
     </>
   )
 }
 
-function HeroScene(){
+function LogoScene(){
   return (
     <>
         <LogoAnim />
         <Floor />
-        <HeroSceneLights />
+        <LogoSceneLights />
     </>
   );
 }
 
-function HeroSceneLights(){
+function LogoSceneLights(){
   const dirLightRef = useRef<DirectionalLight>(null!)
   //useHelper(dirLightRef, DirectionalLightHelper, 1, "red")
 
