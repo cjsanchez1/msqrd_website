@@ -28,8 +28,13 @@ export function LogoAnim(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials, animations } = useGLTF(modelPath) as GLTFResult
   const { actions } = useAnimations(animations, group)
 
-  nodes._Geo_Skinned.castShadow = true;
-  nodes['root'].castShadow = true;
+  const meshStandardMat = nodes._Geo_Skinned.material as THREE.MeshStandardMaterial
+  meshStandardMat.envMapIntensity = 1
+  meshStandardMat.metalness = 0.95
+  meshStandardMat.roughness = .25
+  
+    nodes._Geo_Skinned.castShadow = true;
+    nodes['root'].castShadow = true;
 
   // I added this to animate the object
   let anim: THREE.AnimationAction | null = null

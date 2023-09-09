@@ -1,7 +1,7 @@
 import React, { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { LogoAnim } from './LogoAnim';
-import { OrthographicCamera, ContactShadows, EnvironmentMap, OrbitControls, useHelper } from '@react-three/drei';
+import { OrthographicCamera, Environment, OrbitControls, useHelper } from '@react-three/drei';
 import Loader from './Loader';
 import * as MSqrdColors from "./MSqrdColors"
 import * as THREE from "three"
@@ -105,9 +105,7 @@ function LogoSceneLights(){
 
   return (
     <>
-        <ambientLight intensity={0.8} color={"white"} />
-        {/* <EnvironmentMap background={false} files={"path"} /> */}
-        {/* <pointLight position={[0.4,0.5,0]} color={"white"}/> */}
+        <Environment background={false} files={"./imgs/blue_photo_studio_1k.hdr"} />
         <directionalLight
           intensity={2}
           position={dirLightPos}
