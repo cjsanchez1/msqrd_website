@@ -28,18 +28,17 @@ export function LogoAnim(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials, animations } = useGLTF(modelPath) as GLTFResult
   const { actions } = useAnimations(animations, group)
 
-  // I added this to animate the object
-  let logoAnim: THREE.AnimationAction | null = null
-
   nodes._Geo_Skinned.castShadow = true;
   nodes['root'].castShadow = true;
 
+  // I added this to animate the object
+  let anim: THREE.AnimationAction | null = null
   useFrame(() => {
-    if (logoAnim == null){ // gotta do this, since object might not be fully loaded yet
-      logoAnim = actions["logo_anim"]
+    if (anim == null){ // gotta do this, since object might not be fully loaded yet
+      anim = actions["logo_anim"]
+      anim?.play()
     }
     else {
-      logoAnim.play()
     }
   })
 
