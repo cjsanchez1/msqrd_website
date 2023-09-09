@@ -1,8 +1,5 @@
-
-export default class MsqrdColors{
-    static darkBlue = "#000033"
-    static lightBlue = "#46c7f4"
-    static pink = "#ed3b94"
-    static yellow = "#f7ec37"
-    static white = "#ffffff"
-}
+export const darkBlue = "#000033"
+export const lightBlue = "#46c7f4"
+export const pink = "#ed3b94"
+export const yellow = "#f7ec37"
+export const white = "#ffffff"

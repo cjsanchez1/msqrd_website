@@ -15,7 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 import logoPng from "./imgs/Magnitude_Squared_Transparent_256x256.png"
-import MsqrdColors from './MSqrdColors';
+import * as MSqrdColors from './MSqrdColors';
 
 const appName = "M^2"
 const navBarHeight = 60
@@ -61,13 +61,13 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
     <Drawer 
       open={drawerOpen} 
       onClose={handleDrawerToggle} 
-      PaperProps={ { style:{ backgroundColor:MsqrdColors.darkBlue, width:"30%" } } }
+      PaperProps={ { style:{ backgroundColor:MSqrdColors.darkBlue, width:"30%" } } }
       anchor="right"
       >
       <List>
         {menuItems.map((menuItem) => (
           <ListItemButton key={menuItem.text} onClick={() => scrollToRef(menuItem.ref)}>
-            <ListItemText style={ { color:MsqrdColors.white, textAlign:"center", textTransform:"uppercase" } }>
+            <ListItemText style={ { color:MSqrdColors.white, textAlign:"center", textTransform:"uppercase" } }>
               {menuItem.text}
             </ListItemText>
           </ListItemButton>

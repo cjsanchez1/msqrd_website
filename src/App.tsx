@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
 import React from "react";
-import MsqrdColors from "./MSqrdColors";
+import * as MSqrdColors from "./MSqrdColors"
 import { About } from "./About";
 import { Services } from "./Services";
 import { Contact } from "./Contact";
@@ -10,7 +10,7 @@ export default function App() {
   const servicesRef = React.useRef<HTMLDivElement>(null);
   const contactRef  = React.useRef<HTMLDivElement>(null);
   
-  document.body.style.backgroundColor = MsqrdColors.darkBlue;
+  document.body.style.backgroundColor = MSqrdColors.darkBlue;
 
   return (
     <>

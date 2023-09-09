@@ -3,7 +3,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { LogoAnim } from './LogoAnim';
 import { OrthographicCamera, ContactShadows, EnvironmentMap, OrbitControls, useHelper } from '@react-three/drei';
 import Loader from './Loader';
-import MsqrdColors from './MSqrdColors';
+import * as MSqrdColors from "./MSqrdColors"
+import * as THREE from "three"
 import { DirectionalLight, Vector3, DirectionalLightHelper, CameraHelper } from 'three';
 
 const orthoCamStartPos = new Vector3(0, 10, 0)
@@ -12,7 +13,7 @@ export const About = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <>
       <div ref={ref} style={{ height: '70vh', backgroundColor: 'lightgray', padding:0 }}>
-        <Canvas shadows="soft" style={ { backgroundColor:MsqrdColors.darkBlue } }> 
+        <Canvas shadows="soft" style={ { backgroundColor:MSqrdColors.darkBlue } }> 
             <CustomOrthoCamera />
             <Suspense fallback={<Loader />}>
               <HeroScene />
@@ -20,7 +21,7 @@ export const About = React.forwardRef<HTMLDivElement>((props, ref) => {
         </Canvas>
       </div>
       <div style={ { display:"flex", height:'30vh', justifyContent:"center", alignItems:"center" } }>
-        <h2 style={ { textAlign:"center", color:MsqrdColors.yellow, } }>Magnitude Squared was born out of a passion for high performance code.</h2>
+        <h2 style={ { textAlign:"center", color:MSqrdColors.yellow, } }>Magnitude Squared was born out of a passion for high performance code.</h2>
       </div>
     </>
   );
@@ -73,8 +74,13 @@ function Floor(){
     <>
         <mesh scale={100} castShadow={true} receiveShadow={true} position={[0,-0.5,0]} rotation={[-1.57,0,0]}>
             <planeGeometry />
-            <meshStandardMaterial color={MsqrdColors.yellow} metalness={0} roughness={1}/>
-            {/* <shadowMaterial color={MsqrdColors.pink}/> */}
+            <meshStandardMaterial 
+              color={MSqrdColors.yellow} 
+              metalness={0} 
+              roughness={1}
+              envMapIntensity={1}
+            />
+            {/* <shadowMaterial color={MsqrdColors.yellow}/> */}
         </mesh>
     </>
   )
