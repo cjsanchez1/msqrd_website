@@ -14,9 +14,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-import logoPng from "./imgs/Magnitude_Squared_Transparent_256x256.png"
 import * as MSqrdColors from './MSqrdColors';
 
+const logoPath = "./imgs/Magnitude_Squared_Transparent_256x256.png"
 const appName = "M^2"
 const navBarHeight = 60
 
@@ -82,7 +82,7 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
       <AppBar position="fixed" style={{ background:"#000033", }}>
         <Toolbar style={navBarStyle.toolbar}>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
-                <img src={logoPng} 
+                <img src={logoPath} 
                   alt={appName} 
                   style={{ maxHeight: `${navBarHeight}px`, padding:'0.5rem', flex:0 }} 
                   onClick={() => scrollToRef(menuItems[0].ref)}
