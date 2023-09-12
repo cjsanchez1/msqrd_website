@@ -67,7 +67,7 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
       <List>
         {menuItems.map((menuItem) => (
           <ListItemButton key={menuItem.text} onClick={() => scrollToRef(menuItem.ref)}>
-            <ListItemText style={ { color:MSqrdColors.white, textAlign:"center", textTransform:"uppercase" } }>
+            <ListItemText style={ { color:MSqrdColors.white, textAlign:"center", textTransform:"uppercase", fontFamily:"inherit" } }>
               {menuItem.text}
             </ListItemText>
           </ListItemButton>
@@ -79,15 +79,15 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
   return (
     <>
       {/* <AppBar position="fixed" style={{ background:"transparent", }}> */}
-      <AppBar position="fixed" style={{ background:"#000033", }}>
+      <AppBar position="fixed" style={{ background:"#000033" }}>
         <Toolbar style={navBarStyle.toolbar}>
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-                <img src={logoPath} 
-                  alt={appName} 
-                  style={{ maxHeight: `${navBarHeight}px`, padding:'0.5rem', flex:0 }} 
-                  onClick={() => scrollToRef(menuItems[0].ref)}
-                />
-            </Typography>
+            <div style={{ flexGrow: 1, }}>
+              <img src={logoPath} 
+                alt={appName} 
+                style={{ maxHeight: `${navBarHeight}px`, padding:'0.5rem', flex:0 }} 
+                onClick={() => scrollToRef(menuItems[0].ref)}
+              />
+            </div>
           {isMobile ? (
             <>
               <IconButton
@@ -102,7 +102,7 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
           ) : (
             <>
               {menuItems.map((menuItem) => (
-                <Button color="inherit" key={menuItem.text} onClick={() => scrollToRef(menuItem.ref)}>
+                <Button color="inherit" style={ { font:"inherit" } } key={menuItem.text} onClick={() => scrollToRef(menuItem.ref)}>
                   {menuItem.text}
                 </Button>
               ))}

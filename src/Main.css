@@ -1,4 +1,28 @@
+@font-face {
+	font-family: vera;
+	src: url(/fonts/Vera.ttf)
+}
+
+@font-face {
+	font-family: vera_it;
+	src: url(/fonts/VeraIt.ttf)
+}
+
+@font-face {
+	font-family: vera_bd;
+	src: url(/fonts/VeraBd.ttf)
+}
+
+@font-face {
+	font-family: vera_bi;
+	src: url(/fonts/VeraBi.ttf)
+}
+
 * {
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: vera;
 }
