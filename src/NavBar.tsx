@@ -82,11 +82,9 @@ export default function NavBar({ aboutRef, servicesRef, contactRef }: NavBarProp
       <AppBar position="fixed" style={{ background:"#000033" }}>
         <Toolbar style={navBarStyle.toolbar}>
             <div style={{ flexGrow: 1, }}>
-              <img src={logoPath} 
-                alt={appName} 
-                style={{ maxHeight: `${navBarHeight}px`, padding:'0.5rem', flex:0 }} 
-                onClick={() => scrollToRef(menuItems[0].ref)}
-              />
+              <Button>
+                <img src={logoPath} alt={appName} style={{ maxHeight: `${navBarHeight}px`, padding:'0.5rem', flex:0 }} onClick={() => scrollToRef(menuItems[0].ref)}/>
+              </Button>
             </div>
           {isMobile ? (
             <>
