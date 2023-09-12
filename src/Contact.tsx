@@ -16,7 +16,7 @@ const handleDivClick = () => {
 export const Contact = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
     <>
-    <div ref={ref} style={{ height: '100vh', backgroundColor: 'lightgray', padding:0, cursor:"pointerx`" }} onClick={handleDivClick}>
+    <div ref={ref} style={{ height: '100vh', backgroundColor: 'lightgray', padding:0, cursor:"pointer" }} onClick={handleDivClick}>
       <Canvas shadows="soft" style={ { backgroundColor:MSqrdColors.darkBlue } }> 
         <CustomOrthoCamera />
         <ContactScene />
