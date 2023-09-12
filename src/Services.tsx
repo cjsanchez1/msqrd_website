@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as MSqrdColors from './MSqrdColors';
 import { DirectionalLight, Vector3 } from 'three';
 import { Environment, OrthographicCamera, EnvironmentMap, OrbitControls } from '@react-three/drei';
 import { ServicesAnim } from './ServicesAnim';
 import * as OrthoCamUtils from "./OrthoCamUtils";
+import Loader from './Loader';
 
 const orthoCamStartPos = new Vector3(0, 10, 0)
 
@@ -13,7 +14,9 @@ export const Services = React.forwardRef<HTMLDivElement>((props, ref) => {
     <div ref={ref} style={{ height: '100vh', backgroundColor: 'lightgray', padding:0 }}>
       <Canvas shadows="soft" style={ { backgroundColor:MSqrdColors.darkBlue } }> 
         <CustomOrthoCamera />
-        <ServicesScene />
+        <Suspense fallback={<Loader />}>
+          <ServicesScene />
+        </Suspense>
       </Canvas>
     </div>
   );
