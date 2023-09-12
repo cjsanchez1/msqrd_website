@@ -22,10 +22,15 @@ export const About = React.forwardRef<HTMLDivElement>((props, ref) => {
             </Suspense>
         </Canvas>
       </div>
-      <div style={ { display:"flex", height:'30vh', justifyContent:"center", alignItems:"center" } }>
-        <h2 style={ { textAlign:"center", color:MSqrdColors.yellow, } }>
-          Magnitude Squared was born out of a passion for high performance code.
-        </h2>
+      <div style={ { display:"flex", flexDirection:"column", height:'30vh', width:'80vw', justifyContent:"center", alignItems:"center", margin:'auto' } }>
+        <div style={ { fontSize:"1.8rem", textAlign:"center", color:MSqrdColors.lightBlue, fontFamily:"vera_it", } }>
+          Where education meets innovation.
+        </div>
+        <div style={ { height:"1vh" } }/>
+        <div style={ { fontSize:"0.9rem", textAlign:"center", color:MSqrdColors.yellow, } }>
+        We are pioneers in leveraging high-performance code and groundbreaking 3D visualizations to create immersive, interactive educational environments. 
+        We believe in a world where learning is a vibrant, intuitive, and dynamic. Join us as we redefine the boundaries of education, offering unparalleled learning experiences crafted for the next generation of thinkers, creators, and leaders. Embark on a journey of discovery with Magnitude Squared where every lesson is a new dimension.
+        </div>
       </div>
     </>
   );
